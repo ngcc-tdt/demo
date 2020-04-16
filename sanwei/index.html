@@ -7,10 +7,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
     <meta name="renderer" content="webkit">
     <script src="./static/cesium/Cesium.js"></script>
-    <script src="./static/cesium/cesiumTdt.js"></script>
+    <script src="https://tdtstatic.tianditu.gov.cn/cdn/plugins/cesium/cesiumTdt.js"></script>
     <link rel="stylesheet" type="text/css" href="./static/cesium/Widgets/widgets.css" />
     <style>
         html, body{
+			width: 100%;
+            height: 100%;
             margin: 0;
             padding: 0;
             overflow: hidden;
@@ -29,7 +31,7 @@
 <body>
     <div id="cesiumContainer"></div>
 	<script>
-    var token = '你申请的key';
+    var token = '1b78cdef39d3d922ecdf15f524afc1ed';
     // 服务域名
     var tdtUrl = 'https://t{s}.tianditu.gov.cn/DataServer';
     // 服务负载子域
@@ -41,6 +43,15 @@
         selectionIndicator:true,
         infoBox:false
     });
+	
+	// 抗锯齿
+	viewer.scene.postProcessStages.fxaa.enabled=false;
+	// 水雾特效
+	viewer.scene.globe.showGroundAtmosphere = true;
+	// 设置最大俯仰角，[-90,0]区间内，默认为-30，单位弧度
+	viewer.scene.screenSpaceCameraController.constrainedPitch = Cesium.Math.toRadians(-20);
+	// 取消默认的双击事件
+	viewer.cesiumWidget.screenSpaceEventHandler.removeInputAction(Cesium.ScreenSpaceEventType.LEFT_DOUBLE_CLICK);
 
     // 叠加影像服务
     var imgMap = new Cesium.UrlTemplateImageryProvider({
