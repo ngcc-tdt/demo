@@ -1,0 +1,183 @@
+<div class="fly_tab_page">
+	<div id="content1" class="panel selected">
+		<div class="fly_path_operation">
+			<botton id="path_draw" class="btn_path">绘制路线</botton>
+		<!--<botton id="path_import" class="btn_path">导入路线</botton>
+			<botton id="path_export" class="btn_path">导出路线</botton>  -->	
+		</div>
+		<div class="fly_path_container">
+				<table id="fly_path_table" class="table table-hover">
+					<thead>
+						<tr>
+							<th style="text-align: left; border-right: #3385ff solid 1px; border-bottom: #3385ff solid 1px;" data-field="name" tabindex="0">
+								<div class="th-inner sortable both">名称</div>
+								<div class="fht-cell" style="width: 156px;"></div>
+							</th>
+							<th style="text-align: center; width: 70px; border-bottom: #3385ff solid 1px;" data-field="operate" tabindex="0">
+								<div class="th-inner ">操作</div>
+								<div class="fht-cell" style="width: 69px;"></div>
+							</th>
+						</tr>
+					</thead>
+					<tbody >
+						<tr data-index="0" style="display:none">
+							<td style="text-align: left; ">城市地面</td>
+							<td style="text-align: center; width: 70px;padding: 8px 3px 8px 3px;">
+								<a class="fly" href="javascript:void(0)" title="飞行"><i class="fa fly-start"></i></a>&nbsp;&nbsp;
+								<a class="edit" href="javascript:void(0)" title="编辑"><i class="fa fly-setting"></i></a>&nbsp;&nbsp;
+								<a class="remove" href="javascript:void(0)" title="删除"><i class="fa fly-delete"></i></a>
+							</td>
+						</tr>
+						<tr data-index="1" style="display:none">
+							<td style="text-align: left; ">城市飞行</td>
+							<td style="text-align: center; width: 70px; padding: 8px 3px 8px 3px;">
+								<a class="fly" href="javascript:void(0)" title="飞行"><i class="fa fly-start"></i></a>&nbsp;&nbsp;
+								<a class="edit" href="javascript:void(0)" title="编辑"><i class="fa fly-setting"></i></a>&nbsp;&nbsp;
+								<a class="remove" href="javascript:void(0)" title="删除"><i class="fa fly-delete"></i></a>
+							</td>
+						</tr>
+						<tr data-index="2" style="display:none">
+							<td style="text-align: left; ">山区漫游</td>
+							<td style="text-align: center; width: 70px; padding: 8px 3px 8px 3px;">
+								<a class="fly" href="javascript:void(0)" title="飞行"><i class="fa fly-start"></i></a>&nbsp;&nbsp;
+								<a class="edit" href="javascript:void(0)" title="编辑"><i class="fa fly-setting"></i></a>&nbsp;&nbsp;
+								<a class="remove" href="javascript:void(0)" title="删除"><i class="fa fly-delete"></i></a>
+							</td>
+						</tr>
+						<tr data-index="3" style="display:none">
+							<td style="text-align: left; ">工业区</td>
+							<td style="text-align: center; width: 70px; padding: 8px 3px 8px 3px;">
+								<a class="fly" href="javascript:void(0)" title="飞行"><i class="fa fly-start"></i></a>&nbsp;&nbsp;
+								<a class="edit" href="javascript:void(0)" title="编辑"><i class="fa fly-setting"></i></a>&nbsp;&nbsp;
+								<a class="remove" href="javascript:void(0)" title="删除"><i class="fa fly-delete"></i></a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+		</div>
+	</div>
+	<div id="content2" class="panel">
+		<div class="path_points_common_setting">
+			<div class="path_point_name">
+				<i class="arrow active"></i>
+				<span>批量修改高程</span>
+			</div>
+			<div class="path_point_attr active">
+				<table>
+					<tbody>
+						<tr>  
+							<td class="nametd">设置相同高程为(m)：</td> 
+							<td><input id="path_points_allheight" type="number" class="mp_common_input" value=""></td> </tr> 
+						<tr>  
+							<td class="nametd">各点均增加高程(m)：</td> 
+							<td><input id="path_points_addheight" type="number" class="mp_common_input" value=""></td> </tr> 
+						</tr> 
+						<tr> 
+							<td class="nametd">航速(km/h)：</td> 
+							<td><input id="path_points_allspeed" type="number" class="mp_common_input plot_speeds" min="0" max="99999" value="100"></td> 
+						</tr>  
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div class="path_point_setting">
+			<div class="path_point_list_name">
+				<i class="arrow active"></i>
+				<span>站点列表</span>
+			</div>
+			<div class="path_point_content active">
+			</div>	
+		</div>
+	</div>
+	<div id="content3" class="panel">
+		<div class="path_property_setting">
+			<div class="property_setting_title">
+				<span>参数设置</span>
+			</div>
+			<div class="property_setting_content">
+				<table>
+					<tbody>
+						<tr id="path_name">  
+							<td class="path_property">名称</td> 
+							<td><input id="path_name_input" type="text" class="path_property_value" value=""></td> 
+						</tr> 
+						<tr id="path_viewing_angle"> 
+							<td class="path_property">视角模式</td> 
+							<td>
+								<select id="path_viewing_angle_select" class="path_property_value">
+									<option class="black" value='1'>锁定上帝视角</option>
+									<option class="black" value='2'>锁定第一视角</option>
+									<option class="black" value='3'>跟随视角</option>
+									<option class="black" value='4'>无</option>
+								</select>
+							</td> 
+						</tr> 
+						<tr id="path_model">  
+							<td class="path_property">模型</td> 
+							<td>
+								<select id="path_model_select" class="path_property_value">
+									<option class="black" value='1'>飞机</option>
+									<option class="black" value='2'>汽车</option>
+									<option class="black" value='3'>人</option>
+									<option class="black" value='4'>气球</option>
+									<option class="black" value='5'>无</option>
+								</select>
+							</tr> 
+						</tr>
+						<!-- <tr id="path_viewing_angle_distance"> 
+							<td class="path_property">视角距离</td> 
+							<td><input id="path_viewing_angle_distance_input" type="number" class="path_property_value" min="0" max="99999" value="50"></td>
+						</tr>  -->
+						<tr id="path_viewing_angle_height"> 
+							<td class="path_property">视角高度</td> 
+							<td><input id="path_viewing_angle_height_input" type="number" class="path_property_value" min="0" max="99999" value="500"></td>
+						</tr> 
+						<tr id="path_show_path"> 
+							<td class="path_property">显示路线</td> 
+							<td>
+								<input name="path_show_path_input" type="radio" value="1" checked="checked" style="width:15px;">是  &nbsp;&nbsp; 
+								<input name="path_show_path_input" type="radio" value="2" style="width:15px;">否
+							</td>
+						</tr> 
+						<tr id="path_show_pointMessage"> 
+							<td class="path_property">显示站点信息</td> 
+							<td>
+								<input name="path_show_pointMessage_input" type="radio" value="1" checked="checked" style="width:15px;">是  &nbsp;&nbsp; 
+								<input name="path_show_pointMessage_input" type="radio" value="2" style="width:15px;">否
+							</td>
+						</tr>
+						<tr id="path_show_flyMessage"> 
+							<td class="path_property">显示飞行信息</td> 
+							<td>
+								<input name="path_show_flyMessage_input" type="radio" value="1" checked="checked" style="width:15px;">是  &nbsp;&nbsp; 
+								<input name="path_show_flyMessage_input" type="radio" value="2" style="width:15px;">否
+							</td>
+						</tr> 
+						<tr id="path_loop_fly"> 
+							<td class="path_property">循环漫游</td> 
+							<td>
+								<input name="path_loop_fly_input" type="radio" value="1" style="width:15px;">是  &nbsp;&nbsp; 
+								<input name="path_loop_fly_input" type="radio" value="2" checked="checked" style="width:15px;">否
+							</td>
+						</tr>
+						<tr id="path_note">  
+							<td class="path_property">备注</td> 
+							<td><textarea id="path_note_input" type="text" class="path_property_value" value=""></textarea></td> 
+						</tr>   
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div class="path_quick_operation">
+			<botton id="operation_preview" class="btn_quick">飞行预览</botton>
+			<botton id="operation_save" class="btn_quick">保存路线</botton>
+			<botton id="operation_delete" class="btn_quick">删除路线</botton>
+		</div>
+	</div>
+</div>
+
+<div class="fly_tab_title">
+	<h2 id="fly_tab_path" class="selected">线路</h2>
+	<h2 id="fly_tab_positionParameter" class="parameterTab">坐标参数</h2>
+	<h2 id="fly_tab_flyParameter" class="parameterTab">飞行参数</h2>
+</div>

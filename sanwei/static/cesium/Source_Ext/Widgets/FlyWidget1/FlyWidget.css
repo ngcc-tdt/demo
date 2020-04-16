@@ -1,0 +1,508 @@
+@CHARSET "UTF-8";
+
+/**============flySet.css  start================**/
+#flyPanelContent3d{
+    width: 280px;
+    height: 642px;
+}
+.fly_tab_page {
+    clear: both;
+    position: absolute;
+    width: 100%;
+    border: solid cornflowerblue 1px;
+    height: 608px;
+    margin-bottom: 3px;
+    border-radius: 10px 10px 0px 0px;
+    font-size: 13px;
+}
+.fly_tab_page .panel{
+	width: 100%;
+    height: 100%;
+    margin: 3px 0 0px 0;
+    position: absolute;
+    border-radius: 0 10px 10px 10px;
+    box-sizing: border-box;
+    color: #fff;
+    background: unset;
+    display: none;
+    min-height: 350px;
+    max-height: 596px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+.fly_tab_page .selected{
+	opacity: 1;
+	-webkit-transition: .3s;
+	display: block;
+}
+.fly_tab_title{
+    width: 279px;
+    margin-left: 1px;
+    position: absolute;
+    bottom: 0px;
+}
+.fly_tab_title h2 {
+	display: block;
+	cursor: pointer;
+    background: -webkit-linear-gradient(#3385ff, #555);
+    color: #eee;
+    border-radius: 0px 0px 5px 5px;
+    margin-right: 2px;
+    font: italic 1em cambria;
+    width: 92px;
+    height: 31px;
+    margin: 0 1px 0 0;;
+    float: left;
+    text-align: center;
+    line-height: 31px;
+    -webkit-transition: all .2s;
+}
+.fly_tab_title h2:hover {
+	background: -webkit-linear-gradient(#3385ff8f, #3385ff);
+}
+.fly_tab_title .selected{
+	background: -webkit-linear-gradient(#3385ff8f, #3385ff);
+}
+.fly_tab_title .parameterTab{
+	display: none;
+}
+#fly_tab_flyParameter{
+	margin-right: 0px;
+}
+.fly_path_operation{
+	position: absolute;
+	width: 265px;
+    height: 28px;
+    left: 13px;
+}
+.btn_path{
+    float: left;
+    width: 84px;
+    margin: 0px;
+    text-align: center;
+    height: 25px;
+    line-height: 25px;
+    border-radius: 3px;
+    border: #3385ff solid 1px;
+    cursor: pointer;
+}
+.btn_path:hover{
+	background: #d81e06;
+}
+.fly_path_container{
+    position: absolute;
+    top: 30px;
+    width: 276px;
+    height: 564px;
+    left: 0px;
+    border-top: #3385ff solid 2px;
+}
+.fly_path_header{
+	height: 30px;
+}
+.fly_path_header table{
+	width: 100%;
+    border-bottom: #3385ff solid 1px;
+    margin-bottom: 0px;
+}
+.fly_path_header table{
+	width: 100%;
+    border-bottom: #3385ff solid 1px;
+    margin-bottom: 0px;
+}
+.fly_path_container .table tbody tr>:first-child{
+	border-right: #3385ff solid 1px;
+    line-height: 23px;
+}
+.fly_path_container .table tbody td{
+	border-bottom: #3385ff solid 1px;
+	color: #fff;
+}
+.table-hover > thead > tr:hover > th,
+.table-hover > tbody > tr:hover{
+   background-color: #3385ff;
+   opacity: 0.7;
+}
+.fly_path_container tbody td a{
+	float: left;
+    margin: 0px;
+}
+.fly_path_container tbody td i{
+	width: 20px;
+    height: 23px;
+    background-size: 15px;
+    background-repeat: no-repeat;
+    background-position: 3px;
+    display: block;
+}
+.fly_path_container tbody td .fly-start {
+    background-image: url(./images/btn-fly-start.png);
+}
+.fly_path_container tbody td .fly-start:hover {
+    background-image: url(./images/btn-fly-start-on.png);
+}
+.fly_path_container tbody td .fly-setting {
+    background-image: url(./images/btn-fly-setting.png);
+}
+.fly_path_container tbody td .fly-setting:hover {
+    background-image: url(./images/btn-fly-setting-on.png);
+}
+.fly_path_container tbody td .fly-delete {
+    background-image: url(./images/btn-fly-delete.png);
+}
+.fly_path_container tbody td .fly-delete:hover {
+    background-image: url(./images/btn-fly-delete-on.png);
+}
+.path_point_setting{
+	position: relative;
+}
+.path_point_name{
+    cursor: pointer;
+    user-select: none;
+    line-height: 24px;
+    padding-left: 0px;
+    padding-right: 15px;
+    max-width: 100%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 15px;
+}
+.path_point_name .arrow{
+	width: 15px;
+    height: 15px;
+    background-size: 11px;
+    background-repeat: no-repeat;
+    background-position: 3px;
+    display: block;
+    margin: 0px;
+    float: left;
+	background: url(./images/btn-point-open.png) center no-repeat;
+}
+.path_point_name .arrow.active {
+    background: url(./images/btn-point-close.png) center no-repeat;
+}
+.path_point_name .rename{
+	background: url(./images/btn-flypoint-rename.png) center no-repeat;
+	cursor: pointer;
+	width: 18px;
+    height: 21px;
+    background-size: 16px;
+    background-repeat: no-repeat;
+    background-position: 0px;
+    display: block;
+    margin: 0px;
+    float: right;
+}
+.path_point_name .rename:hover{
+	background: url(./images/btn-flypoint-rename-on.png) center no-repeat;
+	width: 18px;
+    height: 21px;
+    background-size: 16px;
+    background-repeat: no-repeat;
+    background-position: 0px;
+}
+.path_point_name .delete{
+	background: url(./images/btn-flypoint-delete.png) center no-repeat;
+	cursor: pointer;
+	width: 23px;
+    height: 23px;
+    background-size: 16px;
+    background-repeat: no-repeat;
+    background-position: 3px;
+    display: block;
+    margin: 0px;
+    float: right;
+}
+.path_point_name .delete:hover{
+	background: url(./images/btn-flypoint-delete-on.png) center no-repeat;
+	width: 23px;
+    height: 23px;
+    background-size: 16px;
+    background-repeat: no-repeat;
+    background-position: 3px;
+}
+.path_point_list_name{
+	cursor: pointer;
+    user-select: none;
+    line-height: 24px;
+    padding-left: 0px;
+    padding-right: 15px;
+    max-width: 100%;
+    font-size: 15px;
+}
+.path_point_list_name>:first-child{
+	width: 15px;
+    height: 15px;
+    background-size: 11px;
+    background-repeat: no-repeat;
+    background-position: 3px;
+    display: block;
+    margin: 0px;
+    float: left;
+}
+.path_point_list_name .arrow{
+	background: url(./images/btn-point-open.png) center no-repeat;
+}
+.path_point_list_name .arrow.active {
+    background: url(./images/btn-point-close.png) center no-repeat;
+}
+.path_point_content .path_point_item{
+    margin-left: 10px;
+}
+.path_point_attr{
+    padding: 0 10px 5px 5px;
+}
+.path_point_attr table tr td{
+	padding: 5px 5px 5px 10px;
+    text-align: left;
+    border: #3385ff 1px solid;
+}
+.path_point_attr table tr>:first-child{
+	user-select: none;
+	white-space: nowrap;
+	width: 90px;
+}
+.path_point_attr table input:focus{
+	border: #1afa29 solid 1px;
+}
+.path_point_attr .mp_input{
+	background-color: inherit;
+    border: #3385ff solid 1px;
+    line-height: 25px;
+    border-radius: 3px;	
+    width: 130px;
+}
+.path_point_attr .mp_common_input{
+	background-color: inherit;
+    border: #3385ff solid 1px;
+    line-height: 25px;
+    border-radius: 3px;	
+    width: 110px;
+}
+。path_property_setting{
+	position: relative;
+    height: auto;
+    padding-bottom: 10px;
+}
+.property_setting_title{
+	position: relative;
+    top: 0px;
+    height: 26px;
+    line-height: 22px;
+    border-bottom: #3385ff solid 1px;
+    font-size: 14px;
+    padding-left: 5px;
+}
+.property_setting_content{
+	position: relative;
+    height: auto;
+    width: 100%;
+    border-top: #3385ff solid 1px;
+}
+.property_setting_content table{
+    width: 100%;	
+}
+.property_setting_content table tr{
+	height: 40px;
+    line-height: 25px;
+}
+.property_setting_content table tr>:first-child{
+	width: 120px;
+    padding-left: 7px;
+    border-right: #3385ff solid 1px;
+    border-bottom: #3385ff solid 1px;
+}
+.property_setting_content table tr>:last-child{
+    padding-left: 8px;
+    border-bottom: #3385ff solid 1px;
+}
+.property_setting_content table tr:last-child{
+	height: 70px;
+    line-height: 55px;
+    border-bottom: #3385ff solid 2px;
+}
+.property_setting_content .path_property_value{
+	width: 140px;
+    background-color: inherit;
+    border: #3385ff solid 1px;
+    border-radius: 3px;
+}
+.property_setting_content .path_property_value:focus{
+	border: #1afa29 solid 1px;
+}
+.property_setting_content table tr select{
+	height: 29px;
+}
+.property_setting_content table tr select option:hover{
+	background-color: #1afa29;
+}
+.path_quick_operation{
+	position: relative;
+    width: 251px;
+    height: 40px;
+    left: 13px;
+    top: 10px;
+}
+.path_quick_operation .btn_quick{
+	cursor: pointer;
+    position: absolute;
+    width: 82px;
+    margin: 0px;
+    text-align: center;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 3px;
+    text-shadow: 0px 1px #eee;
+    font-size: 14px;
+}
+.path_quick_operation :nth-child(1){
+	left: 0px;
+	background-color: #eec531b0;
+}
+.path_quick_operation :nth-child(1):hover{
+	background-color: #eec531;
+}
+.path_quick_operation :nth-child(2){
+	left: 85px;
+	background-color: #5bc0deb0;
+}
+.path_quick_operation :nth-child(2):hover{
+	background-color: #5bc0de;
+}
+.path_quick_operation :nth-child(3){
+	left: 170px;
+   	background-color: #ee5f5bb0;
+}
+.path_quick_operation :nth-child(3):hover{
+	background-color: #ee5f5b;
+}
+#path_note textarea{
+	height: 70px;
+    margin-top: 5px;
+    margin-bottom: -18px;
+    line-height: 20px;
+}
+/**============flySet.css  end================**/
+
+/**============flyMessage.css  end================**/
+#flyMessageContent3d{
+    width: 220px;
+    height: 383px;
+}
+.fly_message_tab_page{
+	clear: both;
+    position: absolute;
+    width: 100%;
+    border: solid cornflowerblue 1px;
+    height: 383px;
+    border-radius: 10px 10px 0px 0px;
+    font-size: 13px;
+    overflow: hidden;
+}
+.fly_message_quit{
+	position: absolute;
+    width: 190px;
+    height: 22px;
+    left: 13px;
+    top: 4px;
+}
+.message_quit {
+    float: left;
+    width: 84px;
+    margin: 0px;
+    text-align: center;
+    height: 21px;
+    line-height: 20px;
+    border-radius: 3px;
+    border: #3385ff solid 1px;
+    cursor: pointer;;
+}
+.message_quit:hover{
+	background: #d81e06;
+}
+.path_message_property{
+	position: absolute;
+    top: 30px;
+    position: relative;
+    height: 312px;
+    width: 100%;
+    border-top: #3385ff solid 2px;
+}
+.path_message_control{
+    position: absolute;
+    top: 341px;
+    height: 40px;
+}
+.path_message_property tbody{
+	font-size: 12px;
+}
+.path_message_property table tr{
+	height: 28px;
+    line-height: 16px;
+}
+.path_message_property table tr>:first-child{
+	width: 105px;
+    padding-left: 7px;
+    border-right: #3385ff solid 1px;
+    border-bottom: #3385ff solid 1px;
+}
+.path_message_property table tr>:last-child{
+    padding-left: 6px;
+    border-bottom: #3385ff solid 1px;
+}
+.path_message_property .path_message_property_value{
+	width: 105px;
+    background-color: inherit;
+}
+#operation_backward{
+	background-image: url(./images/btn-fly-backward.png);
+    display: block;
+    height: 25px;
+    width: 25px;
+    background-size: 23px;
+    background-repeat: no-repeat;
+    opacity: 0.7;
+    left: 35px;
+    top: 7px;
+    border: #a6c4de dashed 1px;
+    position: absolute;
+    cursor: pointer;
+    /* Rotate div */
+	transform:rotate(180deg);
+	-ms-transform:rotate(180deg); /* Internet Explorer */
+	-moz-transform:rotate(180deg); /* Firefox */
+	-webkit-transform:rotate(180deg); /* Safari 和 Chrome */
+	-o-transform:rotate(180deg); /* Opera */
+}
+#operation_pause{
+	background-image: url(./images/btn-fly-pause.png);
+    display: block;
+    height: 25px;
+    width: 25px;
+    background-size: 23px;
+    background-repeat: no-repeat;
+    opacity: 0.7;
+    left: 95px;
+    top: 7px;
+    border: #a6c4de dashed 1px;
+    position: absolute;
+    cursor: pointer;
+}
+#operation_continue{
+	background-image: url(./images/btn-fly-continue.png);
+    display: block;
+    height: 25px;
+    width: 25px;
+    background-size: 23px;
+    background-repeat: no-repeat;
+    opacity: 0.7;
+    left: 150px;
+    top: 7px;
+    border: #a6c4de dashed 1px;
+    position: absolute;
+    cursor: pointer;
+}
+.path_message_control .active{
+	box-shadow: 0 0 18px 3px rgb(128, 161, 20);
+} 
+/**============flyMessage.css  end================**/
