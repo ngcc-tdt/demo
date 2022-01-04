@@ -78,7 +78,7 @@
     var terrainUrls = new Array();
 	
     for (var i = 0; i < subdomains.length; i++){
-        var url = tdtUrl.replace('{s}', subdomains[i]) + 'DEM90M/DataServer?T=elv_c&tk=' + token;
+        var url = tdtUrl.replace('{s}', subdomains[i]) + 'mapservice/swdx?T=elv_c&tk=' + token;
         terrainUrls.push(url);
     }
 
