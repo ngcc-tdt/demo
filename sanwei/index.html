@@ -9,9 +9,12 @@
 	<meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Cache-Control" content="no-cache">
     <meta http-equiv="Expires" content="0">
-    <script src="./static/cesium/Cesium.js"></script>
-    <script src="https://api.tianditu.gov.cn/cdn/plugins/cesium/cesiumTdt.js"></script>
-    <link rel="stylesheet" type="text/css" href="./static/cesium/Widgets/widgets.css" />
+    <script type="text/javascript" cesium="true" src="https://api.tianditu.gov.cn/cdn/demo/sanwei/static/cesium/Cesium.js"></script>
+    <script type="text/javascript" cesium="true" src="https://api.tianditu.gov.cn/cdn/plugins/cesium/Cesium_ext_min.js"></script>
+    <script type="text/javascript" cesium="true" src="https://api.tianditu.gov.cn/cdn/plugins/cesium/long.min.js"></script>
+    <script type="text/javascript" cesium="true" src="https://api.tianditu.gov.cn/cdn/plugins/cesium/bytebuffer.min.js"></script>
+    <script type="text/javascript" cesium="true" src="https://api.tianditu.gov.cn/cdn/plugins/cesium/protobuf.min.js"></script>
+    <link rel="stylesheet" cesium="true" href="https://api.tianditu.gov.cn/cdn/demo/sanwei/static/cesium/Widgets/widgets.css">
     <style>
         html, body{
 			width: 100%;
@@ -42,17 +45,49 @@
 
     // cesium 初始化
     var viewer = new Cesium.Map('cesiumContainer', {
-        shouldAnimate: true,
-        selectionIndicator:true,
-        infoBox:false
+        shouldAnimate: true, //是否允许动画
+        selectionIndicator: false,
+        baseLayerPicker: false,
+        fullscreenButton: false,
+        geocoder: false,
+        homeButton: false,
+        infoBox: false,
+        sceneModePicker: false,
+        timeline: false,
+        navigationHelpButton: false,
+        navigationInstructionsInitiallyVisible: false,
+        showRenderLoopErrors: false,
+        shadows: false,
     });
 	
 	// 抗锯齿
+    viewer.scene.fxaa = true;
 	viewer.scene.postProcessStages.fxaa.enabled=false;
 	// 水雾特效
 	viewer.scene.globe.showGroundAtmosphere = true;
 	// 设置最大俯仰角，[-90,0]区间内，默认为-30，单位弧度
 	viewer.scene.screenSpaceCameraController.constrainedPitch = Cesium.Math.toRadians(-20);
+    viewer.scene.screenSpaceCameraController.autoResetHeadingPitch = false;
+    viewer.scene.screenSpaceCameraController.inertiaZoom = 0.5;
+    viewer.scene.screenSpaceCameraController.minimumZoomDistance = 50;
+    viewer.scene.screenSpaceCameraController.maximumZoomDistance = 20000000;
+    viewer.scene.screenSpaceCameraController.zoomEventTypes = [
+        Cesium.CameraEventType.RIGHT_DRAG,
+        Cesium.CameraEventType.WHEEL,
+        Cesium.CameraEventType.PINCH,
+    ];
+    viewer.scene.screenSpaceCameraController.tiltEventTypes = [
+        Cesium.CameraEventType.MIDDLE_DRAG,
+        Cesium.CameraEventType.PINCH,
+        {
+            eventType: Cesium.CameraEventType.LEFT_DRAG,
+            modifier: Cesium.KeyboardEventModifier.CTRL,
+        },
+        {
+            eventType: Cesium.CameraEventType.RIGHT_DRAG,
+            modifier: Cesium.KeyboardEventModifier.CTRL,
+        },
+    ];
 	// 取消默认的双击事件
 	viewer.cesiumWidget.screenSpaceEventHandler.removeInputAction(Cesium.ScreenSpaceEventType.LEFT_DOUBLE_CLICK);
 
@@ -116,6 +151,9 @@
             minLevel: 1,
             maxLevel: 20
         },
+        depthTestOptimization: true,
+        dTOElevation: 15000,
+        dTOPitch: Cesium.Math.toRadians(-70),
         aotuCollide: true, //是否开启避让
         collisionPadding: [5, 10, 8, 5], //开启避让时，标注碰撞增加内边距，上、右、下、左
         serverFirstStyle: true, //服务端样式优先
@@ -125,15 +163,16 @@
             fillColor:Cesium.Color.WHITE,
             scale: 0.5,
             outlineColor:Cesium.Color.BLACK,
-            outlineWidth: 5,
+            outlineWidth: 2,
             style:Cesium.LabelStyle.FILL_AND_OUTLINE,
             showBackground:false,
             backgroundColor:Cesium.Color.RED,
             backgroundPadding:new Cesium.Cartesian2(10, 10),
-            horizontalOrigin:Cesium.HorizontalOrigin.MIDDLE,
+            horizontalOrigin:Cesium.HorizontalOrigin.LEFT,
             verticalOrigin:Cesium.VerticalOrigin.TOP,
             eyeOffset:Cesium.Cartesian3.ZERO,
-            pixelOffset:new Cesium.Cartesian2(0, 8)
+            pixelOffset: new Cesium.Cartesian2(5, 5),
+            disableDepthTestDistance:undefined
         },
         billboardGraphics: {
             horizontalOrigin:Cesium.HorizontalOrigin.CENTER,
@@ -145,7 +184,8 @@
             rotation:0,
             scale:1,
             width:18,
-            height:18
+            height:18,
+            disableDepthTestDistance:undefined
         }
     });
 	
